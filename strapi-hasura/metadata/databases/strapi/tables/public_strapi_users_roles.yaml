@@ -1,0 +1,3 @@
+table:
+  name: strapi_users_roles
+  schema: public

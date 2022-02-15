@@ -1,0 +1,18 @@
+table:
+  name: identity_recovery_addresses
+  schema: public
+object_relationships:
+- name: identity
+  using:
+    foreign_key_constraint_on: identity_id
+- name: network
+  using:
+    foreign_key_constraint_on: nid
+array_relationships:
+- name: identity_recovery_tokens
+  using:
+    foreign_key_constraint_on:
+      column: identity_recovery_address_id
+      table:
+        name: identity_recovery_tokens
+        schema: public

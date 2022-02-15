@@ -1,0 +1,18 @@
+table:
+  name: selfservice_recovery_flows
+  schema: public
+object_relationships:
+- name: identity
+  using:
+    foreign_key_constraint_on: recovered_identity_id
+- name: network
+  using:
+    foreign_key_constraint_on: nid
+array_relationships:
+- name: identity_recovery_tokens
+  using:
+    foreign_key_constraint_on:
+      column: selfservice_recovery_flow_id
+      table:
+        name: identity_recovery_tokens
+        schema: public

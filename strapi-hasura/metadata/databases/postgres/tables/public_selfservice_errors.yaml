@@ -1,0 +1,7 @@
+table:
+  name: selfservice_errors
+  schema: public
+object_relationships:
+- name: network
+  using:
+    foreign_key_constraint_on: nid

@@ -1,0 +1,15 @@
+table:
+  name: selfservice_verification_flows
+  schema: public
+object_relationships:
+- name: network
+  using:
+    foreign_key_constraint_on: nid
+array_relationships:
+- name: identity_verification_tokens
+  using:
+    foreign_key_constraint_on:
+      column: selfservice_verification_flow_id
+      table:
+        name: identity_verification_tokens
+        schema: public

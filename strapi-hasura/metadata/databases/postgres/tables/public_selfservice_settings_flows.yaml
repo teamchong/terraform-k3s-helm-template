@@ -1,0 +1,10 @@
+table:
+  name: selfservice_settings_flows
+  schema: public
+object_relationships:
+- name: identity
+  using:
+    foreign_key_constraint_on: identity_id
+- name: network
+  using:
+    foreign_key_constraint_on: nid

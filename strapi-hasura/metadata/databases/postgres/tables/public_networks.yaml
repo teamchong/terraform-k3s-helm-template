@@ -1,0 +1,116 @@
+table:
+  name: networks
+  schema: public
+array_relationships:
+- name: continuity_containers
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: continuity_containers
+        schema: public
+- name: courier_messages
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: courier_messages
+        schema: public
+- name: identities
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identities
+        schema: public
+- name: identity_credential_identifiers
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_credential_identifiers
+        schema: public
+- name: identity_credentials
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_credentials
+        schema: public
+- name: identity_recovery_addresses
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_recovery_addresses
+        schema: public
+- name: identity_recovery_tokens
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_recovery_tokens
+        schema: public
+- name: identity_verifiable_addresses
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_verifiable_addresses
+        schema: public
+- name: identity_verification_tokens
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: identity_verification_tokens
+        schema: public
+- name: selfservice_errors
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_errors
+        schema: public
+- name: selfservice_login_flows
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_login_flows
+        schema: public
+- name: selfservice_recovery_flows
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_recovery_flows
+        schema: public
+- name: selfservice_registration_flows
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_registration_flows
+        schema: public
+- name: selfservice_settings_flows
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_settings_flows
+        schema: public
+- name: selfservice_verification_flows
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: selfservice_verification_flows
+        schema: public
+- name: sessions
+  using:
+    foreign_key_constraint_on:
+      column: nid
+      table:
+        name: sessions
+        schema: public

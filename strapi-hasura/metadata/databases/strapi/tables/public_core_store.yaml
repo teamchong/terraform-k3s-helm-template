@@ -1,0 +1,3 @@
+table:
+  name: core_store
+  schema: public

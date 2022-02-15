@@ -1,0 +1,3 @@
+table:
+  name: upload_file
+  schema: public

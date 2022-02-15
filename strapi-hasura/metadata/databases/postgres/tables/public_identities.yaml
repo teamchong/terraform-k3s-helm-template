@@ -1,0 +1,64 @@
+table:
+  name: identities
+  schema: public
+object_relationships:
+- name: network
+  using:
+    foreign_key_constraint_on: nid
+array_relationships:
+- name: continuity_containers
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: continuity_containers
+        schema: public
+- name: identity_credentials
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: identity_credentials
+        schema: public
+- name: identity_recovery_addresses
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: identity_recovery_addresses
+        schema: public
+- name: identity_recovery_tokens
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: identity_recovery_tokens
+        schema: public
+- name: identity_verifiable_addresses
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: identity_verifiable_addresses
+        schema: public
+- name: selfservice_recovery_flows
+  using:
+    foreign_key_constraint_on:
+      column: recovered_identity_id
+      table:
+        name: selfservice_recovery_flows
+        schema: public
+- name: selfservice_settings_flows
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: selfservice_settings_flows
+        schema: public
+- name: sessions
+  using:
+    foreign_key_constraint_on:
+      column: identity_id
+      table:
+        name: sessions
+        schema: public
