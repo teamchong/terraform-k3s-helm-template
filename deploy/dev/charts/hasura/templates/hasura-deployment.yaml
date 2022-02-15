@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: hasura
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         io.kompose.service: hasura
+   template:
+      metadata:
+         labels:
+            io.kompose.service: hasura
+      spec:
+         containers:
+            - env:
+                 - name: HASURA_GRAPHQL_ACTIONS_HANDLER_WEBHOOK_BASEURL
+                   value: {{ .Values.webhook_baseurl | b64dec | quote }}
+                 - name: HASURA_GRAPHQL_ACTIONS_KIND
+                   value: synchronous
+                 - name: HASURA_GRAPHQL_ADMIN_SECRET
+                   value: {{ .Values.admin_secret | b64dec | quote }}
+                 - name: HASURA_GRAPHQL_DEV_MODE
+                   value: "true"
+                 - name: HASURA_GRAPHQL_ENABLED_LOG_TYPES
+                   value: startup, http-log, webhook-log, websocket-log, query-log
+                 - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+                   value: "true"
+                 - name: HASURA_GRAPHQL_ENDPOINT
+                   value: {{ .Values.endpoint | b64dec | quote }}
+                 - name: HASURA_GRAPHQL_JWT_SECRET
+                   value: {{ .Values.jwt_secret | b64dec | quote }}
+                 - name: HASURA_GRAPHQL_METADATA_DATABASE_URL
+                   value: {{ .Values.database_url | b64dec | quote }}
+                 - name: HASURA_GRAPHQL_METADATA_DIRECTORY
+                   value: metadata
+                 - name: HASURA_GRAPHQL_VERSION
+                   value: "3"
+                 - name: PG_DATABASE_URL
+                   value: {{ .Values.database_url | b64dec | quote }}
+                 - name: STRAPI_DATABASE_URL
+                   value: {{ .Values.strapi_database_url | b64dec | quote }}
+              image: hasura/graphql-engine:v2.1.1
+              name: hasura
+              ports:
+                 - containerPort: 8080
